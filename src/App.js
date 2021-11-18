@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-// import AddPost from './pages/AddPost';
+import AddPost from './pages/AddPost';
 import AppPosts from './pages/AppPosts';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to='/cars'>Posts</Link>
+              <Link to='/posts'>Posts</Link>
             </li>
             <li>
               <Link to='/add'>Add new post</Link>
@@ -22,10 +22,10 @@ function App() {
           <Route exact path='/posts'>
             <AppPosts />
           </Route>
-          {/* <Route exact path='/add'>
+           <Route exact path='/add'>
             <AddPost />
           </Route>
-          <Route exact path='/edit/:id'>
+          {/* <Route exact path='/edit/:id'>
             <AddPost />
           </Route> */}
         </Switch>

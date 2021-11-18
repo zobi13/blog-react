@@ -22,12 +22,14 @@ export default function AppPosts()
           <h2>Posts</h2>
           <ul>
             {posts.map((post) => (
-              <SinglePost
-                key={post.id}
-                id={post.id}
-                // deleteCallback={handleDelete}
-                // editCallback={handleEdit}
-              />
+                <div>
+                    <SinglePost
+                            key={post.id}
+                            id={post.id}
+                            // deleteCallback={handleDelete}
+                            // editCallback={handleEdit}
+                        />
+                </div>
             ))}
           </ul>
         </div>

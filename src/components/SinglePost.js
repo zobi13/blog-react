@@ -1,10 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function SingleCar({
   id,
   title,
   text,
-  createdAt,
   deleteCallback,
   editCallback,
 }) {
@@ -20,9 +20,9 @@ function SingleCar({
     >
       <span>Title: {title}</span>
       <span>Text: {text}</span>
-      <span>Created at: {createdAt}</span>
-      <button onClick={() => deleteCallback(id)}>Delete</button>
-      <button onClick={() => editCallback(id)}>Edit</button>
+      <Link to = '/api/posts/:postId'> View Post </Link>
+      {/* <button onClick={() => deleteCallback(id)}>Delete</button>
+      <button onClick={() => editCallback(id)}>Edit</button> */}
     </li>
   );
 }
