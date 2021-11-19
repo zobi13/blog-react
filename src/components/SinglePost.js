@@ -7,6 +7,7 @@ export default function SinglePost({
   isOnSinglePage,
   viewCallback,
   editCallback,
+  deleteCallback
 }) {
     // console.log(viewCallback);
   return (
@@ -23,6 +24,7 @@ export default function SinglePost({
       <span>Text: {text}</span>
       {!isOnSinglePage && <button onClick={() => viewCallback(id)}>View</button> }
       <button onClick={() => editCallback(id)}>Edit</button>
+      <button onClick={() => deleteCallback(id)}> Delete </button>
     </li>
   );
 }

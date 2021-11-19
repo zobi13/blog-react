@@ -6,14 +6,14 @@ import PostsService from '../services/PostsService';
 
 export default function SinglePostPage() {
     const { id } = useParams();
-    const [post, setPost] = useState([]);
+    const [post, setPost] = useState({});
     const history = useHistory();
 
     useEffect(() => {
         const fetchPost = async () => {
-          const { id: _, ...restData } = await PostsService.get(id);
+          const data = await PostsService.get(id);
     
-          setPost({ ...restData });
+          setPost({ ...data });
         };
     
         if (id) {
@@ -22,24 +22,32 @@ export default function SinglePostPage() {
     }, [id]);
 
       const handleEdit = (id) => {
-        history.push(`edit/${id}`)
+        history.push(`/edit/${id}`)
       }
 
       const handleView = () => {
           console.log(':P');
       }
 
+      const handleDelete = async (postId) => {
+        await PostsService.delete(postId);
+
+        history.push(`/posts`);
+    }
+
 
     return (
         <div>
             <SinglePost
-                key={post.id}
-                id={post.id}
+                key={id}
+                id={id}
                 title={post.title}
                 text={post.text}
                 isOnSinglePage = {true}
                 viewCallback={handleView}
                 editCallback={handleEdit}
+                deleteCallback={handleDelete}
+
             />
         </div>
     );

@@ -25,6 +25,14 @@ export default function AppPosts()
         history.push(`/posts/${id}`)
     }
 
+    const handleDelete = async (postId) => {
+        const data = await PostsService.delete(postId);
+
+        if (data.count > 0) {
+          setPosts(posts.filter(({ id }) => id !== postId));
+        }
+    }
+
     return (
         <div>
           <h2>Posts</h2>
@@ -39,6 +47,7 @@ export default function AppPosts()
                         isOnSinglePage = {false}
                         viewCallback={handleView}
                         editCallback={handleEdit}
+                        deleteCallback={handleDelete}
                     />
                 </div>
             ))}
