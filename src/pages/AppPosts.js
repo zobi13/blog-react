@@ -17,6 +17,14 @@ export default function AppPosts()
         fetchPosts();
     }, []);
 
+    const handleEdit = (id) => {
+        history.push(`/edit/${id}`)
+    }
+
+    const handleView = (id) => {
+        history.push(`/posts/${id}`)
+    }
+
     return (
         <div>
           <h2>Posts</h2>
@@ -24,11 +32,14 @@ export default function AppPosts()
             {posts.map((post) => (
                 <div>
                     <SinglePost
-                            key={post.id}
-                            id={post.id}
-                            // deleteCallback={handleDelete}
-                            // editCallback={handleEdit}
-                        />
+                        key={post.id}
+                        id={post.id}
+                        title={post.title}
+                        text={post.text}
+                        isOnSinglePage = {false}
+                        viewCallback={handleView}
+                        editCallback={handleEdit}
+                    />
                 </div>
             ))}
           </ul>

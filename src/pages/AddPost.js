@@ -19,6 +19,13 @@ export default function AddPost()
         history.push('/posts');
     }
 
+    const handleReset = () => {
+        setNewPost({
+            title: '',
+            text: ''
+        });
+    }
+
     return (
         <div>
             <h2> Add new post: </h2>
@@ -31,9 +38,10 @@ export default function AddPost()
                     width: 200,
                     marginLeft: 15,}}
             >
-                <input type='text' value={newPost.title} placeholder='Title' onChange={({target}) => setNewPost({...newPost, title: target.value})} />
-                <textarea rows = '10' columns='30' value={newPost.text} placeholder='Text' onChange={({target}) => setNewPost({...newPost, text: target.value})} />
+                <input required type='text' value={newPost.title} placeholder='Title' onChange={({target}) => setNewPost({...newPost, title: target.value})} />
+                <textarea required rows = '10' columns='30' value={newPost.text} placeholder='Text' onChange={({target}) => setNewPost({...newPost, text: target.value})} />
                 <button> Add </button>
+                <buttton onClick={handleReset}> Reset form </buttton>
             </form>
         </div>
     );

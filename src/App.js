@@ -3,6 +3,8 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import AddPost from './pages/AddPost';
 import AppPosts from './pages/AppPosts';
+import SinglePostPage from './pages/SinglePostPage';
+import SinglePost from './components/SinglePost';
 
 function App() {
   return (
@@ -25,9 +27,12 @@ function App() {
            <Route exact path='/add'>
             <AddPost />
           </Route>
-          {/* <Route exact path='/edit/:id'>
+          <Route exact path='/posts/:id'>
+            <SinglePostPage />
+          </Route>
+          <Route exact path='/edit/:id'>
             <AddPost />
-          </Route> */}
+          </Route>
         </Switch>
       </Router>
     </div>
